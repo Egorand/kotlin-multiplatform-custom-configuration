@@ -1,0 +1,27 @@
+apply plugin: 'java-library'
+apply plugin: 'org.jetbrains.kotlin.jvm'
+
+sourceCompatibility = 1.8
+
+configurations {
+    cli
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "com.squareup:mp-library:1.0.0"
+    cli "com.squareup:mp-library:1.0.0"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.register("sayHello", JavaExec) {
+    classpath = configurations.cli
+    main = 'Main'
+}

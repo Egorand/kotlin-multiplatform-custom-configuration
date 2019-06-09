@@ -1,0 +1,18 @@
+# IDEA
+.idea
+*.iml
+classes
+
+# Eclipse
+.classpath
+.project
+
+out/
+
+# Gradle
+.gradle
+build
+generated
+
+# Maven
+plugin*.xml
